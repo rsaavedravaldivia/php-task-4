@@ -1,0 +1,160 @@
+<!--
+1. title: option field, (Mr., Mrs, Miss)
+2. first name: text field
+3. last name: text field
+4. age range: drop down -> same as when you create trip plan
+5. city: drop down field: add some sample cities
+6. country: drop down field: add some sample countries
+7. Phone number (optional)
+- travel preferences:
+8. Travel preferences: drop down -> same as when you create trip plan
+9. Group size: drop down -> same as when you create trip plan
+10. Travel budget: add a slider to select budget per night-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration Form</h2>
+      <form action="store.php" method="post">
+        <!-- maybe add something more open or prefered not to specify, since a person may not want to fill this or don't know how to refer itself-->
+        <div class="form-group">
+          <label for="title">Title</label>
+          <select id="title" name="title" required>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Miss">Miss</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" name="firstname" required />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" required />
+        </div>
+
+        <!-- maybe ask for specific birthday to then calculate age dinamically and group it accordingly-->
+        <div class="form-group">
+          <label for="age">Age Range</label>
+          <select id="age" name="age" required>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-44">35-44</option>
+            <option value="45-54">45-54</option>
+            <option value="55+">55+</option>
+          </select>
+        </div>
+
+        <!-- not clear if this country and city is from country of residence or target country of tourism-->
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="India">India</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <select id="city" name="city" required>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Houston">Houston</option>
+            <option value="Phoenix">Phoenix</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+        <div class="form-group">
+          <label for="travel_preferences">Travel Preferences</label>
+          <select id="travel_preferences" name="travel_preferences" required>
+            <option
+              value="urban"
+              title="City exploration, cultural attractions, shopping"
+            >
+              City exploration, cultural attractions, shopping
+            </option>
+            <option
+              value="nature"
+              title="National parks, hiking trails, beaches"
+            >
+              National parks, hiking trails, beaches
+            </option>
+            <option
+              value="historical"
+              title="Museums, landmarks, UNESCO World Heritage sites"
+            >
+              Museums, landmarks, UNESCO World Heritage sites
+            </option>
+            <option
+              value="adventure"
+              title="Outdoor activities such as hiking, diving or skiing"
+            >
+              Outdoor activities such as hiking, diving or skiing
+            </option>
+            <option
+              value="relaxation"
+              title="Spa retreats or beachside relaxation"
+            >
+              Spa retreats or beachside relaxation
+            </option>
+            <option
+              value="cultural"
+              title="Local festivals/events or traditional experiences"
+            >
+              Local festivals/events or traditional experiences
+            </option>
+            <option
+              value="culinary"
+              title="Trying local cuisines and food tours"
+            >
+              Trying local cuisines and food tours
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="group_size">Group Size</label>
+          <select id="group_size" name="group_size" required>
+            <option value="solo">Solo</option>
+            <option value="couple">Couple</option>
+            <option value="family">Family</option>
+            <option value="group">Group</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="budget">Travel Budget (per night)</label>
+          <input
+            type="range"
+            id="budget"
+            name="budget"
+            min="50"
+            max="1000"
+            step="50"
+            oninput="document.getElementById('budgetValue').innerText = this.value;"
+          />
+          <span id="budgetValue">500</span>
+        </div>
+        <div class="form-group">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
